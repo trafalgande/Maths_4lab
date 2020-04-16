@@ -58,9 +58,7 @@ public class LogarithmicApproximation {
 
         standard_deviation = FastMath.sqrt(deviation_measure/n);
 
-       /* System.out.println("f(aln(x)+b) = " + Arrays.toString(approximateResult) + "\n" +
-                "eps[i] = " + Arrays.toString(eps) + "\ndeviation = " + deviation_measure + "\n" +
-                "a = " + a + "\nb = " + b + "\ncorrelation = " + correlation + "\nstandard deviation = " + standard_deviation);*/
+
 
     }
 

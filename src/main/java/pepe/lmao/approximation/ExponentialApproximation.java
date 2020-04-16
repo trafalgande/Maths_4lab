@@ -60,9 +60,7 @@ public class ExponentialApproximation {
         standard_deviation = FastMath.sqrt(deviation_measure/n);
 
 
-       /* System.out.println("f(ae^(bx)) = " + Arrays.toString(approximateResult) + "\n" +
-                "eps[i] = " + Arrays.toString(eps) + "\ndeviation = " + deviation_measure  + "\n" +
-                "a = " + a + "\nb = " + b + "\ncorrelation = " + correlation + "\nstandard deviation = " + standard_deviation);*/
+
 
     }
     private double f(double x) {

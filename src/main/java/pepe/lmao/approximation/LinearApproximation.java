@@ -55,9 +55,7 @@ public class LinearApproximation {
         }
         standard_deviation = FastMath.sqrt(deviation_measure/n);
 
-        /*System.out.println("f(ax+b) = " + Arrays.toString(approximateResult) + "\n" +
-                "eps[i] = " + Arrays.toString(eps) + "\ndeviation = " + deviation_measure + "\n" +
-                "a = " + a + "\nb = " + b + "\ncorrelation = " + correlation + "\nstandard deviation = " + standard_deviation);*/
+
     }
 
     public double f(double x) {

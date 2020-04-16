@@ -56,9 +56,7 @@ public class PolynomialApproximation {
         }
         standard_deviation = FastMath.sqrt(deviation_measure/n);
         correlation = CorrelationUtil.calcCorrelation(x,y);
-        /*System.out.println("f(a0+a1*x+a2*x^2) = " + Arrays.toString(approximateResult) + "\n" +
-                "eps[i] = " + Arrays.toString(eps) + "\ndeviation = " + deviation_measure + "\n" +
-                "a = " + a + "\nb = " + b + "\nc = " + c + "\ncorrelation = " + correlation + "\nstandard deviation = " + standard_deviation);*/
+
     }
 
     private double f(double x) {
