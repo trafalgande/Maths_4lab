@@ -1,13 +1,12 @@
 package pepe.lmao.method;
 
-import lombok.Getter;
-import org.apache.commons.math3.util.FastMath;
+import lombok.Data;
 import pepe.lmao.approximation.*;
 import pepe.lmao.chart.XYChart;
 
 import java.util.*;
 
-@Getter
+@Data
 public class SmallSquare {
     private double[] x;
     private double[] y;
@@ -34,8 +33,6 @@ public class SmallSquare {
         exponentialApproximation.result();
         logarithmicApproximation.result();
         powApproximation.result();
-
-
     }
 
     public String print() {
@@ -45,24 +42,19 @@ public class SmallSquare {
         formatter.format("%25s %25s %25s %25s %25s %25s", "f = ax + b", linearApproximation.getA(), linearApproximation.getB(), "-",
                 linearApproximation.getDeviation_measure(), linearApproximation.getStandard_deviation() + "\n");
 
-
         formatter.format("%25s %25s %25s %25s %25s %25s", "f = ax^b", powApproximation.getA(), powApproximation.getB(), "-",
                 powApproximation.getDeviation_measure(), powApproximation.getStandard_deviation() + "\n");
-
 
         formatter.format("%25s %25s %25s %25s %25s %25s", "f = ae^(bx)", exponentialApproximation.getA(), exponentialApproximation.getA(), "-",
                 exponentialApproximation.getDeviation_measure(), exponentialApproximation.getStandard_deviation() + "\n");
 
-
         formatter.format("%25s %25s %25s %25s %25s %25s", "f = alnx + b", logarithmicApproximation.getA(), logarithmicApproximation.getA(), "-",
                 logarithmicApproximation.getDeviation_measure(), logarithmicApproximation.getStandard_deviation() + "\n");
-
 
         formatter.format("%25s %25s %25s %25s %25s %25s", "f = ax^2bx + c", polynomialApproximation.getA(), polynomialApproximation.getB(), polynomialApproximation.getC(),
                 polynomialApproximation.getDeviation_measure(), polynomialApproximation.getStandard_deviation());
 
         HashMap<String, Double> tmp = new HashMap<>();
-
         tmp.put(linearApproximation.getKey(), linearApproximation.getStandard_deviation());
         tmp.put(polynomialApproximation.getKey(), polynomialApproximation.getStandard_deviation());
         tmp.put(exponentialApproximation.getKey(), exponentialApproximation.getStandard_deviation());
@@ -93,6 +85,4 @@ public class SmallSquare {
         xyChart.pack();
         xyChart.setVisible(true);
     }
-
-
 }

@@ -16,8 +16,6 @@ public class Main {
         smallSquare.plot();
         writeToFile(smallSquare.print());
 
-
-
     }
 
     public static void readFromFile(String filename) throws IOException {
@@ -33,7 +31,6 @@ public class Main {
                     y[i] = Double.parseDouble(data[i]);
             }
         }
-
     }
 
     private static void writeToFile(String data) throws IOException {

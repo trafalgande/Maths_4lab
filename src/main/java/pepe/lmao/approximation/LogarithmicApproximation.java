@@ -3,18 +3,16 @@ package pepe.lmao.approximation;
 import lombok.Data;
 import org.apache.commons.math3.util.FastMath;
 
-import java.util.Arrays;
 @Data
 public class LogarithmicApproximation {
     private double[] x;
     private double[] y;
-
+    private int n;
     //output variables
     private double a;
     private double b;
     double deviation_measure = 0, standard_deviation = 0;
     private double[] approximateResult;
-    private int n;
     private String key = "LogarithmicApproximation";
 
     public LogarithmicApproximation(double[] x, double[] y) {
@@ -31,10 +29,8 @@ public class LogarithmicApproximation {
     private void findSolution() {
         double SX = 0, SXX = 0, SY = 0, SXY = 0;
         int n = x.length;
-
         double[] x_log = new double[n];
         double[] eps = new double[n];
-
         double correlation;
         for (int i = 0; i < n; i++) {
             x_log[i] = FastMath.log(x[i]);
@@ -45,9 +41,7 @@ public class LogarithmicApproximation {
             SY += y[i];
             SXY += x_log[i] * y[i];
         }
-
         correlation = CorrelationUtil.calcCorrelation(x, y);
-
         a = (SXY * n - SX * SY) / (SXX * n - FastMath.pow(SX, 2));
         b = (SXX * SY - SX * SXY) / (SXX * n - FastMath.pow(SX, 2));
         for (int i = 0; i < n; i++) {
@@ -55,11 +49,7 @@ public class LogarithmicApproximation {
             eps[i] = approximateResult[i] - y[i];
             deviation_measure += FastMath.pow(eps[i], 2);
         }
-
         standard_deviation = FastMath.sqrt(deviation_measure/n);
-
-
-
     }
 
     private double f(double x) {

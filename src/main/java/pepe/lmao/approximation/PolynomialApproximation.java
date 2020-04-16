@@ -4,16 +4,15 @@ import lombok.Data;
 import org.apache.commons.math3.util.FastMath;
 import pepe.lmao.cramer.CramersRuleImplementation;
 
-import java.util.Arrays;
 @Data
 public class PolynomialApproximation {
     private double[] x;
     private double[] y;
+    private int n;
     //output variables
     private double a, b, c;
     double deviation_measure = 0, standard_deviation = 0;
     private double[] approximateResult;
-    private int n;
     private String key = "PolynomialApproximation";
     public PolynomialApproximation(double[] x, double[] y) {
         this.x = x;
@@ -24,7 +23,6 @@ public class PolynomialApproximation {
     public void result() {
         findSolution();
     }
-
     private void findSolution() {
         double SX = 0, SXX = 0, SXXX = 0, SXXXX = 0, SY = 0, SXY = 0, SXXY = 0;
         int n = x.length;
@@ -56,7 +54,6 @@ public class PolynomialApproximation {
         }
         standard_deviation = FastMath.sqrt(deviation_measure/n);
         correlation = CorrelationUtil.calcCorrelation(x,y);
-
     }
 
     private double f(double x) {

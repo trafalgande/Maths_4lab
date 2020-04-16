@@ -10,7 +10,6 @@ public class CorrelationUtil {
         for (int i = 0; i < n; i++) {
             SX += x[i];
             SY += y[i];
-
         }
         avg_x = SX / n;
         avg_y = SY / n;

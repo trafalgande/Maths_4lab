@@ -10,13 +10,12 @@ public class PowApproximation {
     private double[] y;
     private double A;
     private double B;
-
+    private int n;
     //output variables
     private double a;
     private double b;
     private double deviation_measure = 0, standard_deviation = 0;
     private double[] approximateResult;
-    private int n;
     private String key = "PowApproximation";
     public PowApproximation(double[] x, double[] y) {
         this.x = x;
@@ -34,9 +33,7 @@ public class PowApproximation {
         int n = x.length;
         double[] x_log = new double[n];
         double[] y_log = new double[n];
-        double[] approximateResult = new double[n];
         double[] eps = new double[n];
-
         double correlation;
         for (int i = 0; i < n; i++) {
             x_log[i] = FastMath.log(x[i]);
@@ -48,9 +45,7 @@ public class PowApproximation {
             SY += y_log[i];
             SXY += x_log[i] * y_log[i];
         }
-
         correlation = CorrelationUtil.calcCorrelation(x, y);
-
         A = (SXY * n - SX * SY) / (SXX * n - FastMath.pow(SX, 2));
         B = (SXX * SY - SX * SXY) / (SXX * n - FastMath.pow(SX, 2));
         a = FastMath.exp(B);
@@ -61,8 +56,6 @@ public class PowApproximation {
             deviation_measure += FastMath.pow(eps[i], 2);
         }
         standard_deviation = FastMath.sqrt(deviation_measure/n);
-
-
     }
 
     private double f(double x) {

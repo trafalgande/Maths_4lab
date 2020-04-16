@@ -22,32 +22,25 @@ public class CramersRuleImplementation {
                 {coeff[1][0], coeff[1][1], coeff[1][2]},
                 {coeff[2][0], coeff[2][1], coeff[2][2]},
         };
-
         double[][] d1 = {
                 {coeff[0][3], coeff[0][1], coeff[0][2]},
                 {coeff[1][3], coeff[1][1], coeff[1][2]},
                 {coeff[2][3], coeff[2][1], coeff[2][2]},
         };
-
         double[][] d2 = {
                 {coeff[0][0], coeff[0][3], coeff[0][2]},
                 {coeff[1][0], coeff[1][3], coeff[1][2]},
                 {coeff[2][0], coeff[2][3], coeff[2][2]},
         };
-
         double[][] d3 = {
                 {coeff[0][0], coeff[0][1], coeff[0][3]},
                 {coeff[1][0], coeff[1][1], coeff[1][3]},
                 {coeff[2][0], coeff[2][1], coeff[2][3]},
         };
-
-
         double D = determinantOfMatrix(d);
         double D1 = determinantOfMatrix(d1);
         double D2 = determinantOfMatrix(d2);
         double D3 = determinantOfMatrix(d3);
-
-        // Case 1
         if (D != 0) {
             a0 = D1 / D;
             a1 = D2 / D;
